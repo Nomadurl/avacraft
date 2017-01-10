@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Andika|Anonymous+Pro:400,400i,700,700i|Arimo:400,400i,700,700i|Bad+Script|Comfortaa:300,400,700|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i|Cormorant+Infant:300,300i,400,400i,500,500i,600,600i,700,700i|Cormorant+SC:300,400,500,600,700|Cormorant+Unicase:300,400,500,600,700|Cormorant:300,300i,400,400i,500,500i,600,600i,700,700i|Cousine:400,400i,700,700i|Cuprum:400,400i,700,700i|Didact+Gothic|EB+Garamond|El+Messiri:400,500,600,700|Exo+2:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Fira+Mono:400,700|Fira+Sans:300,300i,400,400i,500,500i,700,700i|Forum|Istok+Web:400,400i,700,700i|Jura:300,400,500,600|Kelly+Slab|Kurale|Ledger|Lobster|Lora:400,400i,700,700i|Marck+Script|Marmelad|Merriweather:300,300i,400,400i,700,700i,900,900i|Neucha|Noto+Sans:400,400i,700,700i|Noto+Serif:400,400i,700,700i|Open+Sans+Condensed:300,300i,700|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Oranienbaum|PT+Mono|PT+Sans+Caption:400,700|PT+Sans+Narrow:400,700|PT+Sans:400,400i,700,700i|PT+Serif+Caption:400,400i|PT+Serif:400,400i,700,700i|Pattaya|Philosopher:400,400i,700,700i|Play:400,700|Playfair+Display+SC:400,400i,700,700i,900,900i|Playfair+Display:400,400i,700,700i,900,900i|Poiret+One|Press+Start+2P|Prosto+One|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto+Mono:100,100i,300,300i,400,400i,500,500i,700,700i|Roboto+Slab:100,300,400,700|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Rubik+Mono+One|Rubik+One|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i|Ruslan+Display|Russo+One|Scada:400,400i,700,700i|Seymour+One|Stalinist+One|Tenor+Sans|Tinos:400,400i,700,700i|Ubuntu+Condensed|Ubuntu+Mono:400,400i,700,700i|Ubuntu:300,300i,400,400i,500,500i,700,700i|Underdog|Yeseva+One&subset=cyrillic,cyrillic-ext,latin-ext');
+/*font-family: 'Roboto', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+font-family: 'PT Sans', sans-serif;
+font-family: 'Roboto Slab', serif;
+font-family: 'Merriweather', serif;
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Lora', serif;
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Playfair Display', serif;
+font-family: 'Arimo', sans-serif;
+font-family: 'PT Sans Narrow', sans-serif;
+font-family: 'Noto Sans', sans-serif;
+font-family: 'PT Serif', serif;
+font-family: 'Noto Serif', serif;
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Exo 2', sans-serif;
+font-family: 'Lobster', cursive;
+font-family: 'Ubuntu Condensed', sans-serif;
+font-family: 'Cuprum', sans-serif;
+font-family: 'Play', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'PT Sans Caption', sans-serif;
+font-family: 'Rubik', sans-serif;
+font-family: 'EB Garamond', serif;
+font-family: 'Comfortaa', cursive;
+font-family: 'Russo One', sans-serif;
+font-family: 'Poiret One', cursive;
+font-family: 'Cormorant Garamond', serif;
+font-family: 'Istok Web', sans-serif;
+font-family: 'Philosopher', sans-serif;
+font-family: 'Tinos', serif;
+font-family: 'Didact Gothic', sans-serif;
+font-family: 'Playfair Display SC', serif;
+font-family: 'Neucha', cursive;
+font-family: 'Bad Script', cursive;
+font-family: 'Scada', sans-serif;
+font-family: 'Cousine', monospace;
+font-family: 'Marck Script', cursive;
+font-family: 'Jura', sans-serif;
+font-family: 'PT Mono', monospace;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Oranienbaum', serif;
+font-family: 'Ubuntu Mono', monospace;
+font-family: 'PT Serif Caption', serif;
+font-family: 'Andika', sans-serif;
+font-family: 'Marmelad', sans-serif;
+font-family: 'Ruslan Display', cursive;
+font-family: 'Forum', cursive;
+font-family: 'Kelly Slab', cursive;
+font-family: 'Anonymous Pro', monospace;
+font-family: 'Cormorant Infant', serif;
+font-family: 'Cormorant', serif;
+font-family: 'Yeseva One', cursive;
+font-family: 'Cormorant Unicase', serif;
+font-family: 'Cormorant SC', serif;
+font-family: 'Kurale', serif;
+font-family: 'Fira Mono', monospace;
+font-family: 'Ledger', serif;
+font-family: 'Pattaya', sans-serif;
+font-family: 'El Messiri', sans-serif;
+font-family: 'Rubik Mono One', sans-serif;
+font-family: 'Underdog', cursive;
+font-family: 'Stalinist One', cursive;
+font-family: 'Seymour One', sans-serif;
+font-family: 'Tenor Sans', sans-serif;
+font-family: 'Prosto One', cursive;
+font-family: 'Rubik One', sans-serif;*/
+
+.exp{
+	font-family: "Philosopher";
+	font-size: 30px;
+	font-style: italic;
+}
+
+.block {
+	margin-left: 10px;
+	border: solid 1px black;
+	width: 418px;
+	height: 57px;
+		font-size: 15px;
+	font-style: italic;
+	font-family: Arial; 
+
+}
+
+#canvas {
+	/*background-color: red;*/
+	border: dotted 3px black;
+}
+
+#canvas-panel {
+	background-image: url(../images/square.png); /* Путь к фоновому рисунку */
+	background-position: left bottom; /* Положение фона */
+	background-repeat: repeat; /* Повторяем фон по горизонтали */
+}
+
+/*Exp*/
+@font-face {
+  font-family: 'double';
+  src:  url('fonts/double.eot?be4x3k');
+  src:  url('fonts/double.eot?be4x3k#iefix') format('embedded-opentype'),
+    url('fonts/double.ttf?be4x3k') format('truetype'),
+    url('fonts/double.woff?be4x3k') format('woff'),
+    url('fonts/double.svg?be4x3k#double') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'double' !important;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-letter-spacing-plus:before {
+  content: "\e902";
+}
+.icon-double-italic:before {
+  content: "\e900";
+}
+.icon-double-bold:before {
+  content: "\e901";
+}
+
+#letter-plus #letter-minus {
+    position: inherit;
+}
+#letter-plus .glyphicon #letter-minus .glyphicon {
+    position: inherit; 
+}
+
+.btn {
+	top: 1px;
+}

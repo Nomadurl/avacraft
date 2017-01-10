@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/css/bootstrap.min.css"/>
+	<!-- <link rel="stylesheet" type="text/css" href="bootstrap-2.3.2/css/bootstrap.min.css"/> -->
+	<script src="js/object-observe.js"></script>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<!-- <script src="bootstrap-2.3.2/js/bootstrap.min.js"></script> -->
+	<script src="bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<title>Font with JS</title>
+</head>
+<body>
+<h1 align="center">Изменяем размер шрифта в HTML</h1>
+ 
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-9">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title text-center">Холст</h3>
+			  	</div>
+				<div class="panel-body" id="canvas-panel">
+					<canvas id="canvas" width="750" height="250"></canvas>
+				</div>
+			</div>
+					<p  class="exp">Привет-медвед</p>
+		</div>
+
+		<div class="col-md-3"> 
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title text-center">Панель инструментов</h3>
+			  </div>
+			  <div class="panel-body">
+					<form>
+						<label class="control-label">Текст надписи</label>
+						<textarea id="userText" class="form-control" rows="3" name="userText" placeholder="Введите Ваш текст..." 
+							style="resize:none" required oninput="module.setText(this.value);"></textarea>
+						
+						<hr class="blue-border-color">
+						<label class="control-label">Шрифт</label><br>
+						<select id="font-family" onChange="module.setFontFamily(this.value)"></select>
+						<select id="font-size" onChange="module.setFontSize(this.value)"></select>
+	
+						<p><div class="btn-group" id="text-form" data-toggle="buttons">
+  							<label class="btn btn-default active" onclick="module.setFontForm('fill');">
+         						<input type="radio" name="fill">Текст
+        					</label>
+  							<label class="btn btn-default" onclick="module.setFontForm('stroke');">
+         						<input type="radio" name="stroke">Контур
+        					</label>
+						</div></p>
+
+						<p><div class="btn-group" id="text-align" data-toggle="buttons">
+  							<label class="btn btn-default glyphicon glyphicon-align-left" onclick="module.setTextAlign('left');">
+         						<input type="radio" name="left" >
+        					</label>
+  							<label class="btn btn-default glyphicon glyphicon-align-center active" onclick="module.setTextAlign('center');">
+         						<input type="radio" name="center"> 
+        					</label>
+  							<label class="btn btn-default glyphicon glyphicon-align-right" onclick="module.setTextAlign('right');">
+          						<input type="radio" name="right"> 
+        					</label>
+						</div></p>
+	
+						<p><div class="btn-group" id="font-style" data-toggle="buttons">
+								<button type="button" title ="Курсив" value="italic" 
+									class="btn btn-default glyphicon glyphicon-italic" onclick="module.setFontStyle(this);">
+								</button>
+								<button type="button" title ="Наклонный курсив" value="oblique" 
+									class="btn btn-default glyphicon icon-double-italic" onclick="module.setFontStyle(this);">
+								</button>
+							</div>
+        					<div class="btn-group" id="font-weight" data-toggle="buttons">
+        						<button type="button" title = "Полужирный" value="600" 
+        							class="btn btn-default glyphicon glyphicon-bold" onclick="module.setFontWeight(this);">
+        						</button>
+								<button type="button" title="Жирный как твоя подруга" value="900" 
+									class="btn btn-default glyphicon icon-double-bold" onclick="module.setFontWeight(this);">
+								</button>
+						</div></p>
+						
+						<hr class="blue-border-color">
+						<label class="control-label">Межбуквенный интервал</label><br>
+						<p><div class="btn-group" id="letter-spacing" style="top: inherit;">
+							<button type="button" class="btn btn-default glyphicon glyphicon-font" onclick="module.active(this);"></button>
+							<button type="button" id="letter-plus" class="btn btn-default">
+								<i class="glyphicon glyphicon-chevron-right"></i>
+								<i class="glyphicon glyphicon-chevron-left"></i>
+							</button>
+							<button type="button" id="letter-minus" class="btn btn-default">
+								<i class="glyphicon glyphicon-chevron-left"></i>
+								<i class="glyphicon glyphicon-chevron-right"></i>
+							</button>
+						</div></p>
+					</form>
+			  </div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<script type="text/javascript" src=js/app.js></script>
+<script>
+ $(document).ready(function () {
+    $('#my').click(function(e) {
+    	if($('#my').hasClass('glyphicon-italic')){
+    		$('#my').removeClass('glyphicon-italic');
+        	$('#my').addClass('glyphicon-bold');	
+    	} else {
+        	$('#my').removeClass('glyphicon-bold');
+        	$('#my').addClass('glyphicon-italic');
+    	}
+        e.preventDefault();
+    });
+});
+</script>
+</body>
+</html>
