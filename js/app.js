@@ -20,8 +20,8 @@ var module = (function() {
     fontForm: "fill",   //stroke or fill 
     fontStyle: "normal",  //normal, italic, oblique,
     fontWeight: "400",  //normal(400), bold(600), bolder(900) 
-    fontSize: "20",
- 		fontFamily: "Arial",
+    fontSize: "20px",
+ 		fontFamily: "Times New Roman",
  		textAlign: "center",
  		letterSpacing: "normal", //..., -2px, -1px, normal, 1px, 2px, ..., n
  	},
@@ -79,7 +79,7 @@ var module = (function() {
     curentInstance.fontSize = fontSize;
   },
   setFontFamily = function(fontFamily){
-  	curentInstance.fontFamily = fontFamily;
+    curentInstance.fontFamily = fontFamily;
   },
   setTextAlign = function(textAlign){
     curentInstance.textAlign = textAlign;
@@ -90,32 +90,40 @@ var module = (function() {
   	console.log(letterSpacing);
   };
 
-  Object.observe(curentInstance, draw);
-
+  /*Инициализирует список доступных шрифтов*/
   (function fontFamilyListInitialize(){
-    var fontFamilyDropDown = document.getElementById('font-family'),
+    let fontFamilyDropDown = document.getElementById('font-family'),
       option = null,
-      serverFontList,
+      serverFontList = {},
+      mySet = {},
+      counter = 0,
       /*Список шрифтов по умолчанию*/
-      defaultFontFamilyArray = ['Arial','Comic Sans MS', 'Courier New', 'Georgia', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana'];
+      defaultFontList = ['Arial','Comic Sans MS', 'Courier New', 'Georgia', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana'];
       /*Тут должен быть метод который аяксом получает все шрифты доступные в папке fonts и добавляет их в массив fontList, массив надо в Set переделать*/
-
-      var serverFontList = $.ajax({
+      $.ajax({
           type: "GET",
           url: "getFontList.php",
           dataType: "json",
           async: false,
           success: function(data){
-              return data;
+              serverFontList = data;
             }
-          });
-        console.log(serverFontList.responseText);
-
-      for (var i = 0; i < defaultFontFamilyArray.length; i++) {
-        option = new Option(defaultFontFamilyArray[i], defaultFontFamilyArray[i]);  //new Option(text, value);
-        fontFamilyDropDown.options.add(option, i);
+        });
+      /*Добавляем поля объекта serverFontList в массив defaultFontList*/
+      for(let key in serverFontList) {
+        defaultFontList.push(serverFontList[key]);
       }
-  })();
+      /*Сортируем массив и делаем из него Set (коллекция уникальных элементов)*/
+      mySet = new Set(defaultFontList.sort());
+
+      for(let item of mySet) {
+        option = new Option(item, item);  //new Option(text, value);
+        if(item == curentInstance.fontFamily) {
+          option.selected = "selected";
+        }
+        fontFamilyDropDown.options.add(option, ++counter);
+      }
+    })();
 
   /* Функция инициализирует выпадающий список размеров шрифта.
   * @fontSizeDropDown - DOM-элемент списка с id = "font-size"
@@ -133,12 +141,14 @@ var module = (function() {
       option = null;
     for (var i = 0, j = 14; i < 14; i++, j+=2) {
       option = new Option(j, j+"px");  //new Option(text, value);
-      if(j == curentInstance.fontSize) {
+      if(option.value == curentInstance.fontSize) {
         option.selected = "selected";
       }
       fontSizeDropDown.options.add(option, i);
     }
   })();
+  /*Реагирует на иpменение объекта currentInstance запуском функции draw() */
+  Object.observe(curentInstance, draw);
 
   return {
   	/*ctx: ctx,
