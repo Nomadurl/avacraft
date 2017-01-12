@@ -1,11 +1,5 @@
-    /*active = function(button){
-      console.log(button.value);
-      $(button).toggleClass('active').siblings().removeClass('active');
-    };*/
-
 /*
   TODO: 1) разобраться с параметрами-координатами stroke/fill
-  2) дописать метод получения шрифтов
   3) реализовать функцию изменения расстояния между буквами
   4) разобраться с центрированием текста и его переносом
 */
@@ -86,8 +80,8 @@ var module = (function() {
     console.log(textAlign);
   },
   setLetterSpacing = function(letterSpacing){
-  	curentInstance.letterSpacing = letterSpacing;
-  	console.log(letterSpacing);
+  	curentInstance.letterSpacing = letterSpacing.value;
+  	console.log(letterSpacing.value);
   };
 
   /*Инициализирует список доступных шрифтов*/
@@ -95,7 +89,7 @@ var module = (function() {
     let fontFamilyDropDown = document.getElementById('font-family'),
       option = null,
       serverFontList = {},
-      mySet = {},
+      fontSet = {},
       counter = 0,
       /*Список шрифтов по умолчанию*/
       defaultFontList = ['Arial','Comic Sans MS', 'Courier New', 'Georgia', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana'];
@@ -114,9 +108,9 @@ var module = (function() {
         defaultFontList.push(serverFontList[key]);
       }
       /*Сортируем массив и делаем из него Set (коллекция уникальных элементов)*/
-      mySet = new Set(defaultFontList.sort());
+      fontSet = new Set(defaultFontList.sort());
 
-      for(let item of mySet) {
+      for(let item of fontSet) {
         option = new Option(item, item);  //new Option(text, value);
         if(item == curentInstance.fontFamily) {
           option.selected = "selected";

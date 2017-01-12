@@ -130,10 +130,10 @@ font-family: 'Rubik One', sans-serif;*/
   content: "\e901";
 }
 
-#letter-plus #letter-minus {
+#spacing-increase #spacing-decrease {
     position: inherit;
 }
-#letter-plus .glyphicon #letter-minus .glyphicon {
+#spacing-increase .glyphicon #spacing-decrease .glyphicon {
     position: inherit; 
 }
 

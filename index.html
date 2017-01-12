@@ -86,12 +86,15 @@
 						<hr class="blue-border-color">
 						<label class="control-label">Межбуквенный интервал</label><br>
 						<p><div class="btn-group" id="letter-spacing" style="top: inherit;">
-							<button type="button" class="btn btn-default glyphicon glyphicon-font" onclick="module.active(this);"></button>
-							<button type="button" id="letter-plus" class="btn btn-default">
+							<button type="button" class="btn btn-default glyphicon glyphicon-font" 
+								title="Обычный" value="normal" onclick="module.setLetterSpacing(this);"></button>
+							<button type="button" id="spacing-decrease" class="btn btn-default" 
+								title="Уменьшить" value="decrease" onclick="module.setLetterSpacing(this);">
 								<i class="glyphicon glyphicon-chevron-right"></i>
 								<i class="glyphicon glyphicon-chevron-left"></i>
 							</button>
-							<button type="button" id="letter-minus" class="btn btn-default">
+							<button type="button" id="spacing-increase" class="btn btn-default" 
+								title="Увеличить" value="increase" onclick="module.setLetterSpacing(this);">
 								<i class="glyphicon glyphicon-chevron-left"></i>
 								<i class="glyphicon glyphicon-chevron-right"></i>
 							</button>
