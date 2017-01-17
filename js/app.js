@@ -2,6 +2,9 @@
   TODO: 1) разобраться с параметрами-координатами stroke/fill
   3) реализовать функцию изменения расстояния между буквами
   4) разобраться с центрированием текста и его переносом
+  5) добавлять функция на кнопки из js, а не в html (т.е. убрать все onclock в html)
+  Canvas не позволяет задать расстояние между буквами 
+  $(fontStyleButton).toggleClass('active').siblings().removeClass('active');
 */
 
 'use strict';
@@ -12,12 +15,11 @@ var module = (function() {
  	curentInstance = {
  		text: "Замените данный текст на свой",
     fontForm: "fill",   //stroke or fill 
-    fontStyle: "normal",  //normal, italic, oblique,
-    fontWeight: "400",  //normal(400), bold(600), bolder(900) 
+    fontStyle: "normal",  //normal, italic
+    fontWeight: "400",  //normal(400), bold(600) 
     fontSize: "20px",
  		fontFamily: "Times New Roman",
  		textAlign: "center",
- 		letterSpacing: "normal", //..., -2px, -1px, normal, 1px, 2px, ..., n
  	},
 
   draw = function() {
@@ -42,6 +44,16 @@ var module = (function() {
   setFontForm = function(fontForm){
     curentInstance.fontForm = fontForm;
   },
+  setFontSize = function(fontSize){
+    curentInstance.fontSize = fontSize;
+  },
+  setFontFamily = function(fontFamily){
+    curentInstance.fontFamily = fontFamily;
+  },
+  setTextAlign = function(textAlign){
+    curentInstance.textAlign = textAlign;
+    console.log(textAlign);
+  },
   /** Функция отвечает за установку стиля текста. 
   * В качестве аргумента передается кнопка, поле value которой содержит значение.
   * Возможнные значения - italic, oblique.
@@ -56,10 +68,11 @@ var module = (function() {
     } else {
       curentInstance.fontStyle = fontStyleButton.value;
     }
-      $(fontStyleButton).toggleClass('active').siblings().removeClass('active');
+      $(fontStyleButton).toggleClass('active');
+      $(resetButton).removeClass('active');
   },
   /* Функция отвечает за жирность шрифта. Полностью аналогична функции setFotStyle().
-  * Возможные значения: normal(400), bold(600), bolder(900) 
+  * Возможные значения: normal(400), bold(600) 
   */
   setFontWeight = function(fontWeightButton) {
     if(curentInstance.fontWeight == fontWeightButton.value){
@@ -67,22 +80,19 @@ var module = (function() {
     } else {
       curentInstance.fontWeight = fontWeightButton.value;
     }
-      $(fontWeightButton).toggleClass('active').siblings().removeClass('active');
+      $(fontWeightButton).toggleClass('active');
+      $(resetButton).removeClass('active');
   },
-  setFontSize = function(fontSize){
-    curentInstance.fontSize = fontSize;
-  },
-  setFontFamily = function(fontFamily){
-    curentInstance.fontFamily = fontFamily;
-  },
-  setTextAlign = function(textAlign){
-    curentInstance.textAlign = textAlign;
-    console.log(textAlign);
-  },
-  setLetterSpacing = function(letterSpacing){
-  	curentInstance.letterSpacing = letterSpacing.value;
-  	console.log(letterSpacing.value);
+  resetStyle = function() {
+    curentInstance.fontStyle = "normal";
+    curentInstance.fontWeight = "400";
+    $(resetButton).siblings().removeClass('active');
+    if(!$(resetButton).hasClass('active')){
+      $(resetButton).addClass('active');
+    }
   };
+
+
 
   /*Инициализирует список доступных шрифтов*/
   (function fontFamilyListInitialize(){
@@ -145,8 +155,8 @@ var module = (function() {
   Object.observe(curentInstance, draw);
 
   return {
-  	/*ctx: ctx,
-  	curentInstance: curentInstance,*/
+  	ctx: ctx,
+  	curentInstance: curentInstance,
   	setText: setText,
   	setFontFamily: setFontFamily,
   	setFontSize: setFontSize,
@@ -154,7 +164,7 @@ var module = (function() {
     setFontStyle: setFontStyle,
   	setFontWeight: setFontWeight,
   	setTextAlign: setTextAlign,
-  	setLetterSpacing: setLetterSpacing,
+    resetStyle: resetStyle,
   }
 
   	/*Внешне видны только функции меняющие состояние объекта curentInstance, функция draw должна отрисовывать канвас на основе этого объекта 
